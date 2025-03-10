@@ -254,12 +254,3 @@ resource "aws_autoscaling_group" "main_asg" {
   target_group_arns = [aws_lb_target_group.web-tg.arn]
 }
 
-
-#create an s3 bucket for backend.tf storage
-resource "aws_s3_bucket" "mystatefile12311" {
-  bucket = "mystatefile12311"
-
-  tags = {
-    Name = "mystatefile12311"
-  }
-}
