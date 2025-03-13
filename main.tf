@@ -42,7 +42,7 @@ resource "aws_subnet" "public_subnet_3" {
 }
 
 
-#create an internet gateway to attach to route-table
+#create an internet gateway 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main_vpc.id
 
@@ -51,7 +51,7 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 
-#Create a route table for our subnets and igw
+#Create a route table, edit routes and associate to internet gateway
 resource "aws_route_table" "route" {
   vpc_id = aws_vpc.main_vpc.id
 
@@ -62,6 +62,7 @@ resource "aws_route_table" "route" {
 
 }
 
+# Associate route table to public subnets - For demo purposes
 resource "aws_route_table_association" "public_subnet_1_assoc" {
   subnet_id      = aws_subnet.public_subnet_1.id
   route_table_id = aws_route_table.route.id
